@@ -1,0 +1,59 @@
+Dynamic Memory:
+In C++, dynamic memory allocation allows memory to be allocated or deallocated during the execution of a program. The following functions are used to manage dynamic memory:
+
+new: It is used to allocate memory dynamically and returns a pointer to the allocated memory.
+delete: It is used to deallocate the memory that was previously allocated using new.
+For example, consider the following code snippet:
+
+int* dynamicIntArray = new int[10];
+
+This code dynamically allocates memory for an array of 10 integers.
+
+Linked List in C++ Classes:
+A linked list is a linear data structure where each element is a separate object and each object is linked via references to the next element in the sequence. In C++, we can represent a linked list using a class.
+
+Here's an example of a linked list class in C++:
+
+class Node {
+public:
+    int data;
+    Node* next;
+};
+
+class LinkedList {
+public:
+    Node* head;
+
+    LinkedList() {
+        head = nullptr;
+    }
+
+    void addNode(int value) {
+        Node* newNode = new Node();
+        newNode->data = value;
+        newNode->next = nullptr;
+
+        if (head == nullptr) {
+            head = newNode;
+        } else {
+            Node* currentNode = head;
+            while (currentNode->next != nullptr) {
+                currentNode = currentNode->next;
+            }
+            currentNode->next = newNode;
+        }
+    }
+
+    void printList() {
+        Node* currentNode = head;
+        while (currentNode != nullptr) {
+            cout << currentNode->data << " ";
+            currentNode = currentNode->next;
+        }
+        cout << endl;
+    }
+};
+
+In this code, we define a Node class that represents an element in the linked list. Each Node object has an integer value and a pointer to the next Node object in the list.
+
+The LinkedList class contains a head pointer to the first Node object in the list and methods to add a new Node to the list and print the entire list.
